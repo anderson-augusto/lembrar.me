@@ -1,0 +1,380 @@
+/* ===================== */
+/*        RESET          */
+/* ===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #0f141a;
+    color: #E4E4E4;
+    line-height: 1.6;
+}
+
+/* ===================== */
+/*        HEADER         */
+/* ===================== */
+
+header {
+    width: 100%;
+    padding: 20px 60px;
+    background-color: #0f141a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header-logo img {
+    height: 50px;
+}
+
+/* NAV */
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #dcdcdc;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #76C043;
+}
+
+/* BOTÕES DO HEADER */
+
+.header-botao a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    background-color: #76C043;
+    color: #000;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+.header-botao a:hover {
+    background-color: #5A9A35;
+}
+
+/* ===================== */
+/*        HERO           */
+/* ===================== */
+
+.main-img {
+    width: 100%;
+    height: 480px;
+    position: relative;
+    margin-top: 5px;
+}
+
+.main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shadowbox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.55);
+    top: 0;
+}
+
+/* TÍTULOS PRINCIPAIS */
+
+.main-titulo {
+    text-align: center;
+    margin-top: -260px;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.main-titulo h1 {
+    font-size: 2.6rem;
+    color: #76C043;
+    font-weight: 700;
+}
+
+.main-titulo h2 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #d0d0d0;
+}
+
+
+/* ===================== */
+/*   SESSÕES HISTÓRIA    */
+/* ===================== */
+
+main section,
+.historia-fotografia-1,
+.historia-fotografia-2,
+.historia-fotografia-3,
+.historia-fotografia-4 {
+    width: 100%;
+    max-width: 1100px;
+    margin: 90px auto;
+    padding: 0 20px;
+}
+
+/* TITULOS */
+
+main h3 {
+    color: #76C043;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+
+/* BLOCO DE TEXTO E IMAGEM */
+
+.historia-fotografia-1,
+.historia-fotografia-2,
+.historia-fotografia-3,
+.historia-fotografia-4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* PARÁGRAFOS */
+.conteudo p {
+    font-size: 1rem;
+    color: #dcdcdc;
+    max-width: 520px;
+}
+
+/* IMAGENS */
+
+.conteudo-img img,
+.conteudo-img2 img,
+.conteudo-img3 img {
+    width: 340px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+}
+
+.conteudo-img2 p {
+    font-size: 0.85rem;
+    margin-top: 6px;
+    opacity: 0.8;
+}
+
+/* ALTERNAR LADOS (EFEITO ZIG-ZAG) */
+
+.historia-fotografia-2,
+.historia-fotografia-4 {
+    flex-direction: row-reverse;
+}
+
+/* ===================== */
+/*      Iportância       */
+/* ===================== */
+
+
+.iportancia-da-fotografia {
+    width: 100%;
+    max-width: 1200px;
+    margin: 120px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* IMAGENS LATERAIS */
+.iportancia-da-fotografia .img-left img,
+.iportancia-da-fotografia .img-right img {
+    width: 320px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+}
+
+/* BLOCO DE TEXTO CENTRAL */
+.conteudo-importancia {
+    max-width: 520px;
+}
+
+.conteudo-importancia h3 {
+    color: #76C043;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.conteudo-importancia p {
+    color: #dcdcdc;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===================== */
+/*     PÁGINA LOGIN      */
+/* ===================== */
+
+.login-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 80vh;
+    padding: 0 60px;
+}
+
+/* BOX DO FORMULÁRIO */
+.login-box {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-logo {
+    color: #E38B27;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.login-titulo {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.login-sub {
+    color: #bfbfbf;
+    margin-bottom: 30px;
+}
+
+/* GRUPO DOS INPUTS */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 90%;
+}
+
+.formulario label {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 45px 15px 15px;
+    background-color: #151b23;
+    border: 1px solid #2a2f36;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #76C043;
+}
+
+.input-group span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9c9c9c;
+    font-size: 1.2rem;
+}
+
+/* BOTÃO */
+.btn-cadastrar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    background-color: #76C043;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+    background-color: #5a9a35;
+}
+
+/* TEXTO DO LOGIN */
+.login-link {
+    margin-top: 18px;
+    color: #bfbfbf;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #E38B27;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* IMAGEM À DIREITA */
+.login-img {
+    width: 50%;
+}
+
+.login-img img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 12px;
+    align-items: center;
+}
+.btn-entrar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    background-color: #76C043;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.recuperar-senha a{
+  color: #bfbfbf;
+  text-decoration: none;
+}
+
+.recuperar-senha :hover{
+  color: #E38B27;
+}

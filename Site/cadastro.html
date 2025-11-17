@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Cadastro Lembre.me</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+</head>
+
+<body>
+    <header> <!-- Header é um elemento semantico, tem seus proprios comportamentos-->
+        <div class="header-logo">
+            <a href="index.html"><img src="./src/img/logo2.png" class="titulo"></a>
+        </div>
+        <nav> <!-- Nav também-->
+            <ul>
+                <li class="listagem">
+                    <a href="#historia"><span class="material-symbols-outlined">
+                            <!-- essa classe referencia o css que adiciona um comportamento para os icones, ou sobre a cor ou sobre o preenchimento-->
+                            Camera <!-- aqui vão o nome dos Icones do google-->
+                        </span>História da Fotografia</a>
+                </li>
+                <li>
+                    <a href="#sobre"><span class="material-symbols-outlined">
+                            Photo_Library
+                        </span>Importância da Fotografia</a>
+                </li>
+                <li>
+                    <a href="#recursos"><span class="material-symbols-outlined">
+                            Code
+                        </span>Sobre o Projeto</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-botao">
+            <a href="login.html">Entrar</a>
+            <a href="cadastro.html">Cadastra-se</a>
+        </div>
+    </header>
+    <main>
+    <div class="login-container">
+
+        <div class="login-box">
+            <h1 class="login-logo">Lembre.me</h1>
+            <h2 class="login-titulo">Crie sua conta</h2>
+            <p class="login-sub">Comece a guardar suas memórias hoje.</p>
+
+            <form class="formulario">
+
+                <label>Nome</label>
+                <div class="input-group">
+                    <input type="text" placeholder="Seu nome completo">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+
+                <label>Email</label>
+                <div class="input-group">
+                    <input type="email" placeholder="seuemail@exemplo.com">
+                    <span class="material-symbols-outlined">mail</span>
+                </div>
+
+                <label>Senha</label>
+                <div class="input-group">
+                    <input type="password" placeholder="Crie uma senha forte">
+                    <span class="material-symbols-outlined">lock</span>
+                </div>
+
+                <label>Confirmar Senha</label>
+                <div class="input-group">
+                    <input type="password" placeholder="Repita sua senha">
+                    <span class="material-symbols-outlined">sync_lock</span>
+                </div>
+
+                <button class="btn-cadastrar">Cadastrar</button>
+
+                <p class="login-link">
+                    Já tem uma conta? <a href="login.html">Faça login</a>
+                </p>
+            </form>
+        </div>
+
+        <div class="login-img">
+            <img src="./src/img/polaroids2.jpg" alt="Imagem de Fotos">
+        </div>
+
+    </div>
+</main>
+
+</body>
+
+</html>
