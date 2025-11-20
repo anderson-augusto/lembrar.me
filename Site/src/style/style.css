@@ -1,12 +1,12 @@
-/* ===================== */
+
 /*        RESET          */
-/* ===================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -15,9 +15,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===================== */
 /*        HEADER         */
-/* ===================== */
 
 header {
     width: 100%;
@@ -75,9 +73,7 @@ nav a:hover {
     background-color: #5A9A35;
 }
 
-/* ===================== */
-/*        HERO           */
-/* ===================== */
+/*        Seção Principal           */
 
 .main-img {
     width: 100%;
@@ -123,9 +119,7 @@ nav a:hover {
 }
 
 
-/* ===================== */
 /*   SESSÕES HISTÓRIA    */
-/* ===================== */
 
 main section,
 .historia-fotografia-1,
@@ -189,9 +183,7 @@ main h3 {
     flex-direction: row-reverse;
 }
 
-/* ===================== */
 /*      Iportância       */
-/* ===================== */
 
 
 .iportancia-da-fotografia {
@@ -232,9 +224,7 @@ main h3 {
     font-size: 1rem;
 }
 
-/* ===================== */
 /*     PÁGINA LOGIN      */
-/* ===================== */
 
 .login-container {
     margin-top: 20px;
@@ -377,4 +367,73 @@ main h3 {
 
 .recuperar-senha :hover{
   color: #E38B27;
+}
+
+/* ---- TÍTULO  MAIN ---- */
+.titulo-main {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.titulo-main h1 {
+    margin-left: 20%;
+    font-size: 2.1rem;
+    
+}
+
+/* ---- ÁLBUNS ---- */
+
+.albuns {
+    margin-top: 30px;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* sempre 4 por linha */
+    gap: 25px;
+}
+
+
+.album-item {
+    text-align: center;
+}
+
+.album-item img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* ---- PESSOAS IMPORTANTES ---- */
+
+.pessoas-importantes {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.pessoas-importantes h2 {
+    margin-bottom: 20px;
+}
+
+.pessoas-grid {
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
+
+.pessoa {
+    text-align: center;
+}
+
+.pessoa img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
 }
