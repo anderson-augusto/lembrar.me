@@ -438,6 +438,11 @@ main h3 {
     object-fit: cover;
 }
 
+.saudacoes {
+    padding-top: 15px;
+    padding-left: 100px;
+}
+
 /* ---- Dashboard ---- */
 .kpis{
     display: flex;
