@@ -44,134 +44,138 @@
         <div class="perfil">
             <a href="perfil.html"> <img src="" alt=""></a>
         </div>
+        
     </header>
     <main>
-        <div class="saudacoes">
-            <h2> Bem Vindo User</h2>
+
+    <div class="saudacao">
+        <h2>Bem-vindo, User</h2>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">local_fire_department</span>
+        <strong>Álbum mais engajado</strong>
+        <p id="kpi_album_engajado">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">workspace_premium</span>
+        <strong>Foto mais impactante</strong>
+        <p id="kpi_foto_impactante">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">trending_up</span>
+        <strong>Álbum que mais cresceu</strong>
+        <p id="kpi_album_cresceu">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">event</span>
+        <strong>Dia mais lembrado</strong>
+        <p id="kpi_dia_lembrado">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">photo_camera</span>
+        <strong>Fotos no último mês</strong>
+        <p id="kpi_fotos_mes">—</p>
+    </div>
+
+</div>
+
+
+    <!-- GRÁFICOS -->
+    <div class="graficos">
+        <div class="grafico">
+            <h3>Curtidas por Álbum</h3>
+            <canvas id="grafico1"></canvas>
         </div>
-        <div class="kpis">
-            <div class="kpi">
-                <h4>Album mais curtido</h4>
-                <span id="likedAlbum" > VIAGENS<!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Star_Rate </span>
-            </div>
 
-            <div class="kpi">
-                <h4>Quantidade de Curtida</h4>
-                <span id="likes"> 150<!-- Aqui vem os numeros das KPIS --> </span>
-                <span class="material-symbols-outlined"> Favorite </span>
-            </div>
-
-            <div class="kpi">
-                <h4 id="views">Vizualizações</h4>
-                <span> 320<!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Visibility </span>
-            </div>
-
-            <div class="kpi">
-                <h4> Quantidade de Fotos</h4>
-                <span id="photos"> 120<!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Filter </span>
-            </div>
-            <div class="kpi">
-                <h4>Quantidade de Albuns</h4>
-                <span id="albuns"> 5 <!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Filter </span>
-            </div>
+        <div class="grafico">
+            <h3>Views & Likes por tempo</h3>
+            <canvas id="grafico2"></canvas>
         </div>
+    </div>
 
-        <div class="dashboard">
+</main>
 
-            <div>
-                <canvas id="graficol"></canvas>
-
-
-            </div>
-            <div>
-                <canvas id="grafico2"> </canvas>
-            </div>
-
-        </div>
-
-    </main>
 </body>
 
 </html>
 <script>
-    const ctxGeral = document.getElementById('graficol');
-    new Chart(ctxGeral, {
-        type: 'bar',
-        data: {
-            labels: ['Viagens', 'Família', 'Gratidão', 'Top Momentos', 'Nostalgia'],
-            datasets: [
-                {
-                    label: 'Curtidas por Album',
-                    data: [65, 35, 1, 15, 40],
-                    borderColor: '#E38B27',
-                    backgroundColor: '#E38B27',
-                    tension: 0.3,
-                    fill: false,
-                }
-            ]
+
+const ctx1 = document.getElementById('grafico1');
+new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['Viagens', 'Família', 'Gratidão', 'Momentos', 'Nostalgia'],
+        datasets: [{
+            label: 'Taxa Engajamento (%)',
+            data: [82, 64, 22, 55, 71],
+            borderWidth: 2,
+            borderColor: '#E38B27',
+            backgroundColor: '#E38B27'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales:{
+            y:{beginAtZero:true}
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { y: { beginAtZero: true } },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Curtidas Por Album',
-                    color: '#76C043',
-                    font: { size: 18 }
-                },
-                legend: {
-                    labels: { color: '#E38B27' }
-                }
+        plugins:{
+            title:{
+                display:true,
+                text:'Taxa de Engajamento por Álbum',
+                color:'#E38B27'
+            },
+            legend:{
+                labels:{color:'white'}
             }
-
         }
-    });
+    }
+});
 
-    const ctxGera2 = document.getElementById('grafico2');
-    new Chart(ctxGera2, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
-            datasets: [
-                {
-                    label: 'Likes',
-                    data: [10, 14, 8, 11, 9 ],
-                    borderColor: 'rgb(192, 133, 88)',
-                    backgroundColor: 'rgba(225, 174, 71, 0.3)',
-                    
-                },
 
-                {
-                    label: 'Views',
-                    data: [20, 20, 19, 19, 28],
-                    borderColor: 'rgb(140, 255, 90)',
-                    backgroundColor: 'rgba(140, 255, 90, 0.2)',
-                    fill: '+1',
-                }
-            ]
+
+const ctx2 = document.getElementById('grafico2');
+new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels:['Jan','Fev','Mar','Abr','Mai'],
+        datasets:[
+            {
+                label:'Fotos adicionadas por mês',
+                data:[5, 11, 9, 14, 21],
+                borderWidth:2,
+                cubicInterpolationMode:'monotone',
+                tension:.35,
+                borderColor:'#E38B27',
+                backgroundColor:'#E38B27'
+            }
+        ]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{
+            y:{beginAtZero:true}
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { y: { beginAtZero: true } },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Views & Likes per Time',
-                    color: '#76C043',
-                    font: { size: 18 }
-                },
-                legend: {
-                    labels: { color: '#E38B27' }
-                },
+        plugins:{
+            title:{
+                display:true,
+                text:'Crescimento do uso',
+                color:'#E38B27'
+            },
+            legend:{
+                labels:{color:'white'}
             }
-
         }
-    });
+    }
+});
+
 </script>

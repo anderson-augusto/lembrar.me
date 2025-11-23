@@ -45,55 +45,62 @@
             <a href="perfil.html"> <img src="" alt=""></a>
         </div>
     </header>
-    <main>
-        <div class="saudacoes">
-            <h3> Bem Vindo User</h3>
+      <main>
+
+    <div class="saudacao">
+        <h2>Bem-vindo, User</h2>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">local_fire_department</span>
+        <strong>Álbum mais engajado</strong>
+        <p id="kpi_album_engajado">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">workspace_premium</span>
+        <strong>Foto mais impactante</strong>
+        <p id="kpi_foto_impactante">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">trending_up</span>
+        <strong>Álbum que mais cresceu</strong>
+        <p id="kpi_album_cresceu">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">event</span>
+        <strong>Dia mais lembrado</strong>
+        <p id="kpi_dia_lembrado">—</p>
+    </div>
+
+    <div class="kpi">
+        <span class="material-symbols-outlined">photo_camera</span>
+        <strong>Fotos no último mês</strong>
+        <p id="kpi_fotos_mes">—</p>
+    </div>
+
+</div>
+
+
+    <!-- GRÁFICOS -->
+    <div class="graficos">
+        <div class="grafico">
+            <h3>Curtidas por Álbum</h3>
+            <canvas id="grafico1"></canvas>
         </div>
-        <div class="kpis">
-            <div class="kpi">
-                <h4>Album mais curtido</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Star_Rate </span>
-            </div>
 
-            <div class="kpi">
-                <h4>Quantidade de Curtida</h4>
-                <span> <!-- Aqui vem os numeros das KPIS --> </span>
-                <span class="material-symbols-outlined"> Favorite </span>
-            </div>
-
-            <div class="kpi">
-                <h4>Vizualizações</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Visibility </span>
-            </div>
-
-            <div class="kpi">
-                <h4>Quantidade de Fotos</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Filter </span>
-            </div>
-            <div class="kpi">
-                <h4>Quantidade de Albuns</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
-                <span class="material-symbols-outlined"> Filter </span>
-            </div>
+        <div class="grafico">
+            <h3>Views & Likes por tempo</h3>
+            <canvas id="grafico2"></canvas>
         </div>
+    </div>
 
-        <div class="dashboard">
-
-            <div>
-                <canvas id="graficoGeral"></canvas>
-
-
-            </div>
-            <div>
-                <canvas id="graficoGera2"> </canvas>
-            </div>
-
-        </div>
-
-    </main>
+</main>
 </body>
 
 </html>
@@ -172,4 +179,10 @@
 
         }
     });
+
+    function carregarKPIS(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        
+        
+    }
 </script>
