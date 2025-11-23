@@ -47,35 +47,35 @@
     </header>
     <main>
         <div class="saudacoes">
-            <h3> Bem Vindo User</h3>
+            <h2> Bem Vindo User</h2>
         </div>
         <div class="kpis">
             <div class="kpi">
                 <h4>Album mais curtido</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
+                <span id="likedAlbum" > VIAGENS<!-- Aqui vem os numeros das KPIS --></span>
                 <span class="material-symbols-outlined"> Star_Rate </span>
             </div>
 
             <div class="kpi">
                 <h4>Quantidade de Curtida</h4>
-                <span> <!-- Aqui vem os numeros das KPIS --> </span>
+                <span id="likes"> 150<!-- Aqui vem os numeros das KPIS --> </span>
                 <span class="material-symbols-outlined"> Favorite </span>
             </div>
 
             <div class="kpi">
-                <h4>Vizualizações</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
+                <h4 id="views">Vizualizações</h4>
+                <span> 320<!-- Aqui vem os numeros das KPIS --></span>
                 <span class="material-symbols-outlined"> Visibility </span>
             </div>
 
             <div class="kpi">
-                <h4>Quantidade de Fotos</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
+                <h4> Quantidade de Fotos</h4>
+                <span id="photos"> 120<!-- Aqui vem os numeros das KPIS --></span>
                 <span class="material-symbols-outlined"> Filter </span>
             </div>
             <div class="kpi">
                 <h4>Quantidade de Albuns</h4>
-                <span><!-- Aqui vem os numeros das KPIS --></span>
+                <span id="albuns"> 5 <!-- Aqui vem os numeros das KPIS --></span>
                 <span class="material-symbols-outlined"> Filter </span>
             </div>
         </div>
@@ -83,12 +83,12 @@
         <div class="dashboard">
 
             <div>
-                <canvas id="graficoGeral"></canvas>
+                <canvas id="graficol"></canvas>
 
 
             </div>
             <div>
-                <canvas id="graficoGera2"> </canvas>
+                <canvas id="grafico2"> </canvas>
             </div>
 
         </div>
@@ -98,19 +98,19 @@
 
 </html>
 <script>
-    const ctxGeral = document.getElementById('graficoGeral');
+    const ctxGeral = document.getElementById('graficol');
     new Chart(ctxGeral, {
         type: 'bar',
         data: {
-            labels: [],
+            labels: ['Viagens', 'Família', 'Gratidão', 'Top Momentos', 'Nostalgia'],
             datasets: [
                 {
                     label: 'Curtidas por Album',
-                    data: [],
+                    data: [65, 35, 1, 15, 40],
                     borderColor: '#E38B27',
                     backgroundColor: '#E38B27',
                     tension: 0.3,
-                    //fill: false,
+                    fill: false,
                 }
             ]
         },
@@ -133,24 +133,26 @@
         }
     });
 
-    const ctxGera2 = document.getElementById('graficoGera2');
+    const ctxGera2 = document.getElementById('grafico2');
     new Chart(ctxGera2, {
         type: 'line',
         data: {
-            labels: [],
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
             datasets: [
                 {
                     label: 'Likes',
-                    data: [],
+                    data: [10, 14, 8, 11, 9 ],
                     borderColor: 'rgb(192, 133, 88)',
                     backgroundColor: 'rgba(225, 174, 71, 0.3)',
+                    
                 },
 
                 {
                     label: 'Views',
-                    data: [],
+                    data: [20, 20, 19, 19, 28],
                     borderColor: 'rgb(140, 255, 90)',
                     backgroundColor: 'rgba(140, 255, 90, 0.2)',
+                    fill: '+1',
                 }
             ]
         },
@@ -167,7 +169,7 @@
                 },
                 legend: {
                     labels: { color: '#E38B27' }
-                }
+                },
             }
 
         }

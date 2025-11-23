@@ -432,13 +432,14 @@ main h3 {
 }
 
 .perfil img {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .saudacoes {
+    color: #76C043;
     padding-top: 15px;
     padding-left: 100px;
 }
@@ -449,7 +450,7 @@ main h3 {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin: 50px;
+    margin: 30px;
 }
 
 .kpi {
@@ -469,4 +470,21 @@ main h3 {
 
 main h4 {
     color: #76C043;
+}
+
+.dashboard {
+    /*border: 2px solid red;*/
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content:space-around ;
+    margin-top: 10px;
+
+}
+
+.dashboard canvas{
+   /* border: 2px solid blue; */
+    width: 500px;
+    height: 350px;
 }
