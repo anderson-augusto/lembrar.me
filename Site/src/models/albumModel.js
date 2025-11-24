@@ -1,35 +1,5 @@
 var database = require("../database/config");
 
-function listarAlbuns() {
-    var instrucaoSql = `
-        SELECT 
-            idAlbum,
-            nome,
-            descricao,
-            dtCriacao
-        FROM album
-        ORDER BY dtCriacao DESC;
-    `;
-    return database.executar(instrucaoSql);
-}
-
-function kpiRankingEngajamento() {
-    var instrucaoSql = `
-        SELECT 
-            a.nome AS album,
-            COUNT(v.idFoto) + COUNT(c.idFoto) AS engajamento
-        FROM album a
-        LEFT JOIN foto f ON f.fkAlbum = a.idAlbum
-        LEFT JOIN visualizacao v ON v.idFoto = f.idFoto
-        LEFT JOIN curtida c ON c.idFoto = f.idFoto
-        GROUP BY a.idAlbum
-        ORDER BY engajamento DESC
-        LIMIT 1;
-    `;
-    return database.executar(instrucaoSql);
-}
-
-
 // total de curtidas por álbum
 function curtidasPorAlbum(){
     var sql = `
@@ -73,8 +43,6 @@ function viewsLikesSemanal(){
     `;
     return database.executar(sql);
 }
-
-//Joao
 
 function albumMaisEngajado() {
     const sql = `
@@ -176,14 +144,6 @@ function fotosMes() {
     `;
     return database.executar(sql);
 }
-
-
-
-
-
-
-
-
 
 module.exports = {
     listarAlbuns,

@@ -1,29 +1,5 @@
 var albumModel = require("../models/albumModel");
 
-function listarAlbuns(req, res) {
-    albumModel.listarAlbuns()
-        .then(resultado => {
-            if (resultado.length >= 1) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum álbum encontrado");
-            }
-        })
-        .catch(erro => {
-            console.log("ERRO", erro);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
-
-function kpiRankingEngajamento(req, res) {
-    albumModel.kpiRankingEngajamento()
-        .then(resultado => {
-            res.json(resultado[0]);
-        })
-        .catch(erro => {
-            res.status(500).json(erro.sqlMessage);
-        })
-}
 
 var albumModel = require("../models/albumModel");
 
@@ -39,8 +15,6 @@ function viewsLikesSemanal(req, res){
     .catch(e => res.status(500).json(e.sqlMessage));
 }
 
-
-//Joao
 function albumMaisEngajado(req, res) {
     albumModel.albumMaisEngajado()
         .then(r => res.json(r[0]))
