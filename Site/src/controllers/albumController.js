@@ -1,0 +1,47 @@
+var albumModel = require("../models/albumModel");
+
+function listarAlbuns(req, res) {
+    albumModel.listarAlbuns()
+        .then(resultado => {
+            if (resultado.length >= 1) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum álbum encontrado");
+            }
+        })
+        .catch(erro => {
+            console.log("ERRO", erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function kpiRankingEngajamento(req, res) {
+    albumModel.kpiRankingEngajamento()
+        .then(resultado => {
+            res.json(resultado[0]);
+        })
+        .catch(erro => {
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
+var albumModel = require("../models/albumModel");
+
+function curtidasPorAlbum(req, res){
+    albumModel.curtidasPorAlbum()
+    .then(r => res.json(r))
+    .catch(e => res.status(500).json(e.sqlMessage));
+}
+
+function viewsLikesSemanal(req, res){
+    albumModel.viewsLikesSemanal()
+    .then(r => res.json(r))
+    .catch(e => res.status(500).json(e.sqlMessage));
+}
+
+module.exports = {
+    listarAlbuns,
+    kpiRankingEngajamento,
+     curtidasPorAlbum,
+    viewsLikesSemanal
+}
