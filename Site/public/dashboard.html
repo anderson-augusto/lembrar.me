@@ -68,7 +68,7 @@
 
     <div class="kpi">
         <span class="material-symbols-outlined">trending_up</span>
-        <strong>Álbum que mais cresceu</strong>
+        <strong>Álbum em destaque</strong>
         <p id="kpi_album_cresceu">—</p>
     </div>
 
@@ -205,11 +205,86 @@ function plotarSemanal(registros){
 
 
 // inicialização automática
-window.onload = () =>{
-   obterDadosCurtidas();
-   obterDadosSemanal();
-}
-    function carregarKPIS(){
+window.onload = () => {
+    obterDadosCurtidas();
+    obterDadosSemanal();
+
+    carregarKpiAlbumMaisEngajado();
+    carregarKpiFotoImpactante();
+    carregarKpiAlbumCresceu();
+    carregarKpiDiaLembrado();
+    carregarKpiFotosMes();
+};
+
+function carregarKPIS(){
         var idUsuario = sessionStorage.ID_USUARIO;
     }
+
+
+//Album mais engajado
+
+function carregarKpiAlbumMaisEngajado() {
+    fetch("/album/kpi/album-mais-engajado")
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById("kpi_album_engajado").innerHTML =
+                d?.nome ?? "—";
+        });
+}
+
+//Foto impactante
+function carregarKpiFotoImpactante() {
+    fetch("/album/kpi/foto-impactante")
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById("kpi_foto_impactante").innerHTML =
+                d?.descricao ?? "—";
+        });
+}
+
+//Albumque mais cresceu
+
+function carregarKpiAlbumCresceu() {
+    fetch("/album/kpi/album-que-mais-cresceu")
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById("kpi_album_cresceu").innerHTML =
+                d?.nome ?? "—";
+        });
+}
+
+//Dia lembrado
+
+function carregarKpiDiaLembrado() {
+    fetch("/album/kpi/dia-mais-lembrado")
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById("kpi_dia_lembrado").innerHTML =
+                formatarData(d?.dia) ?? "—";;
+        });
+}
+
+function formatarData(iso) {
+    if (!iso) return "—";
+    return new Date(iso).toLocaleDateString("pt-BR", {
+        timeZone: "America/Sao_Paulo"
+    });
+}
+
+
+//Fotos no mês
+function carregarKpiFotosMes() {
+    fetch("/album/kpi/fotos-mes")
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById("kpi_fotos_mes").innerHTML =
+                d?.total ?? "—";
+        });
+}
+
+
+
+
+
+
 </script>

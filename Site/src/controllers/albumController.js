@@ -39,9 +39,48 @@ function viewsLikesSemanal(req, res){
     .catch(e => res.status(500).json(e.sqlMessage));
 }
 
+
+//Joao
+function albumMaisEngajado(req, res) {
+    albumModel.albumMaisEngajado()
+        .then(r => res.json(r[0]))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+function fotoImpactante(req, res) {
+    albumModel.fotoImpactante()
+        .then(r => res.json(r[0]))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+function albumQueMaisCresceu(req, res) {
+    albumModel.albumQueMaisCresceu()
+        .then(r => res.json(r[0]))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+
+function diaMaisLembrado(req, res) {
+    albumModel.diaMaisLembrado()
+        .then(r => res.json(r[0]))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+
+function fotosMes(req, res) {
+    albumModel.fotosMes()
+        .then(r => res.json(r[0]))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+
+
+
+
+
 module.exports = {
     listarAlbuns,
     kpiRankingEngajamento,
-     curtidasPorAlbum,
-    viewsLikesSemanal
+    curtidasPorAlbum,
+    viewsLikesSemanal,
+    albumMaisEngajado,
+    fotoImpactante,
+    albumQueMaisCresceu,
+    diaMaisLembrado,
+    fotosMes
 }
