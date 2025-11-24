@@ -178,4 +178,45 @@ ORDER BY
     YEAR(dtCriacao),
     MONTH(dtCriacao);
     
-SELECT * FROM usuario;
+INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+SELECT  idFoto, 2, DATE_SUB(NOW(), INTERVAL 1 WEEK)
+FROM foto LIMIT 5;
+
+-- INSERT INTO curtida (idFoto, idUsuario, dtCurtida) VALUES
+-- (1, 3, DATE_SUB(NOW(), INTERVAL 1 WEEK)),
+-- (2, 4, DATE_SUB(NOW(), INTERVAL 1 WEEK)),
+-- (3, 2, DATE_SUB(NOW(), INTERVAL 1 WEEK));
+
+-- 2 semanas atrás
+INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+SELECT  idFoto, 3, DATE_SUB(NOW(), INTERVAL 2 WEEK)
+FROM foto LIMIT 6;
+
+-- INSERT INTO curtida (idFoto, idUsuario, dtCurtida) VALUES
+-- (3, 2, DATE_SUB(NOW(), INTERVAL 2 WEEK)),
+-- (4, 4, DATE_SUB(NOW(), INTERVAL 2 WEEK));
+
+
+-- 3 semanas atrás
+INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+SELECT idFoto, 4, DATE_SUB(NOW(), INTERVAL 3 WEEK)
+FROM foto LIMIT 4;
+
+INSERT INTO curtida (idFoto, idUsuario, dtCurtida) VALUES
+(1, 4, DATE_SUB(NOW(), INTERVAL 3 WEEK)),
+(6, 3, DATE_SUB(NOW(), INTERVAL 3 WEEK));
+
+
+-- 4 semanas atrás
+INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+SELECT idFoto, NULL, DATE_SUB(NOW(), INTERVAL 4 WEEK)
+FROM foto LIMIT 3;
+
+-- INSERT INTO curtida (idFoto, idUsuario, dtCurtida) VALUES
+-- (2, 4, DATE_SUB(NOW(), INTERVAL 4 WEEK));
+
+
+-- 5 semanas atrás
+INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+SELECT idFoto, NULL, DATE_SUB(NOW(), INTERVAL 5 WEEK)
+FROM foto LIMIT 2;
