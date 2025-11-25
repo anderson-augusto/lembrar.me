@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
+// página inicial
 router.get("/", function (req, res) {
     res.render("index");
 });

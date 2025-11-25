@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Álbum</title>
+    <link rel="stylesheet" href="./src/style/album.css">
+</head>
+
+<body>
+    <button id="btnVoltar" class="btn-voltar">⬅ Voltar</button>
+
+    <h1>Fotos do Álbum</h1>
+
+   <div class="album-container">
+
+    <div id="fotos-container" class="lista-fotos"></div>
+
+    <div class="detalhe-foto">
+        <img id="fotoSelecionada">
+        <p id="descricaoSelecionada"></p>
+    </div>
+
+</div>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <span id="fecharModal" class="close">&times;</span>
+        <img id="modal-img" class="modal-content">
+        <p id="modal-desc"></p>
+    </div>
+
+</body>
+</html>
+
+<script>
+async function carregarFotos() {
+    const idAlbum = sessionStorage.ID_ALBUM;
+    if (!idAlbum) {
+        alert("Nenhum álbum selecionado!");
+        return;
+    }
+
+    const response = await fetch(`/fotos/album/${idAlbum}`);
+    if (!response.ok) {
+        console.error("Erro ao buscar fotos:", response.status, response.statusText);
+        return;
+    }
+
+    const lista = await response.json();
+
+    const div = document.getElementById("fotos-container");
+    div.innerHTML = "";
+
+    lista.forEach(item => {
+
+    const divFoto = document.createElement("div");
+    divFoto.classList.add("foto-card");
+
+    const img = document.createElement("img");
+    img.src = item.url;
+
+    img.addEventListener("click", () => {
+        document.getElementById("fotoSelecionada").src = item.url;
+        document.getElementById("descricaoSelecionada").textContent = item.descricao || "Sem descrição";
+    });
+
+    const p = document.createElement("p");
+    p.innerHTML = item.descricao;
+
+    p.addEventListener("click", () => {
+        document.getElementById("fotoSelecionada").src = item.url;
+        document.getElementById("descricaoSelecionada").textContent = item.descricao || "Sem descrição";
+    });
+
+    const likeBtn = document.createElement("button");
+    likeBtn.classList.add("likeBtn");
+    likeBtn.innerHTML = "❤️";
+
+    likeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        likeFoto(item.idFoto);
+    });
+
+    divFoto.appendChild(img);
+    divFoto.appendChild(p);   
+    divFoto.appendChild(likeBtn);
+
+    div.appendChild(divFoto);
+});
+
+
+}
+
+function abrirModal(src, desc) {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("modal-img").src = src;
+    document.getElementById("modal-desc").textContent = desc;
+}
+
+document.getElementById("fecharModal").onclick = () => {
+    document.getElementById("modal").style.display = "none";
+};
+
+document.getElementById("btnVoltar").addEventListener("click", () => {
+    window.location.href = "main.html";
+});
+
+window.onload = carregarFotos;
+
+async function likeFoto(idFoto) {
+    const idUsuario = sessionStorage.ID_USUARIO;
+
+    // verifica curtida existente
+    const verificar = await fetch(`/curtidas/verificar/${idFoto}/${idUsuario}`);
+
+    let dados = null;
+    if (verificar.ok) {
+        try {
+            dados = await verificar.json();
+        } catch(e) {
+            dados = null;
+        }
+    }
+
+    // Se EXISTE registro → descurtir
+    if (dados && dados.idFoto) {
+
+        await fetch("/curtidas/descurtir", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ idFoto, idUsuario })
+        });
+
+        console.log("DESCURTIU");
+
+    } else {
+
+        await fetch("/curtidas/curtir", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ idFoto, idUsuario })
+        });
+
+        console.log("CURTIU");
+    }
+}
+
+
+</script>
+

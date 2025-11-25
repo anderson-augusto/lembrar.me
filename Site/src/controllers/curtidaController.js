@@ -1,5 +1,14 @@
 var curtidaModel = require("../models/curtidaModel");
 
+function verificar(req, res) {
+    var idFoto = req.params.idFoto;
+    var idUsuario = req.params.idUsuario;
+
+    curtidaModel.verificar(idFoto, idUsuario)
+        .then(resultado => res.json(resultado[0]))
+        .catch(erro => res.status(500).json(erro.sqlMessage));
+}
+
 function curtir(req, res) {
     var idFoto = req.body.idFoto;
     var idUsuario = req.body.idUsuario;
@@ -18,6 +27,7 @@ function descurtir(req, res) {
         .catch(erro => res.status(500).json(erro.sqlMessage));
 }
 
+
 function contar(req, res) {
     var idFoto = req.params.idFoto;
 
@@ -27,6 +37,7 @@ function contar(req, res) {
 }
 
 module.exports = {
+    verificar,
     curtir,
     descurtir,
     contar

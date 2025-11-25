@@ -22,6 +22,7 @@ var fotoRouter = require("./src/routes/foto");
 var curtidaRouter = require("./src/routes/curtida");
 var visualizacaoRouter = require("./src/routes/visualizacao");
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));

@@ -3,6 +3,7 @@ var router = express.Router();
 
 var fotoController = require("../controllers/fotoController");
 
+// Endpoint que o front está chamando: /fotos/album/:idAlbum
 router.get("/album/:idAlbum", function (req, res) {
     fotoController.listarFotosDoAlbum(req, res);
 });

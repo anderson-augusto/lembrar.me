@@ -5,6 +5,7 @@ function listarFotosDoAlbum(idAlbum) {
         SELECT 
             idFoto,
             descricao,
+            url,
             dtCriacao
         FROM foto
         WHERE fkAlbum = ${idAlbum}
@@ -13,15 +14,26 @@ function listarFotosDoAlbum(idAlbum) {
     return database.executar(instrucaoSql);
 }
 
-function cadastrarFoto(descricao, fkAlbum) {
+function cadastrarFoto(descricao, url, fkAlbum) {
     var instrucaoSql = `
-        INSERT INTO foto (descricao, fkAlbum)
-        VALUES ('${descricao}', ${fkAlbum});
+        INSERT INTO foto (descricao, url, fkAlbum)
+        VALUES ('${descricao}', '${url}', ${fkAlbum});
     `;
     return database.executar(instrucaoSql);
 }
 
+function like(idFoto) {
+    let sql = `
+        INSERT INTO curtida (idFoto, idUsuario)
+        VALUES (${idFoto}, 1)
+        ON DUPLICATE KEY UPDATE dtCurtida = NOW();
+    `;
+    return database.executar(sql);
+}
+
 module.exports = {
     listarFotosDoAlbum,
-    cadastrarFoto
-}
+    cadastrarFoto,
+    like
+};
+

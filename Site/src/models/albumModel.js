@@ -1,5 +1,26 @@
 var database = require("../database/config");
 
+function listarAlbuns() {
+    var instrucaoSql = `
+        SELECT 
+            a.idAlbum,
+            a.nome,
+            a.descricao,
+            a.dtCriacao,
+            -- pega a URL da foto mais recente como capa (se existir)
+            (
+                SELECT f.url
+                FROM foto f
+                WHERE f.fkAlbum = a.idAlbum
+                ORDER BY f.dtCriacao DESC
+                LIMIT 1
+            ) AS capa
+        FROM album a
+        ORDER BY a.dtCriacao DESC;
+    `;
+    return database.executar(instrucaoSql);
+}
+
 // total de curtidas por álbum
 function curtidasPorAlbum(){
     var sql = `
@@ -147,7 +168,6 @@ function fotosMes() {
 
 module.exports = {
     listarAlbuns,
-    kpiRankingEngajamento,
     curtidasPorAlbum,
     viewsLikesSemanal,
     albumMaisEngajado,
@@ -156,3 +176,4 @@ module.exports = {
     diaMaisLembrado,
     fotosMes
 }
+

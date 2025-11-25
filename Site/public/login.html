@@ -8,27 +8,21 @@
     <link rel="stylesheet" href="./src/style/style.css">
 </head>
 <body>
-    <header> <!-- Header é um elemento semantico, tem seus proprios comportamentos-->
+    <header>
         <div class="header-logo">
             <a href="index.html"><img src="./src/img/logo2.png" class="titulo"></a>
         </div>
-        <nav> <!-- Nav também-->
+        <nav> 
             <ul>
                 <li class="listagem">
                     <a href="index.html#historia"><span class="material-symbols-outlined">
-                            <!-- essa classe referencia o css que adiciona um comportamento para os icones, ou sobre a cor ou sobre o preenchimento-->
-                            Camera <!-- aqui vão o nome dos Icones do google-->
+                            Camera
                         </span>História da Fotografia</a>
                 </li>
                 <li>
                     <a href="index.html#importancia"><span class="material-symbols-outlined">
                             Photo_Library
                         </span>Importância da Fotografia</a>
-                </li>
-                <li>
-                    <a href="#----"><span class="material-symbols-outlined">
-                            Code
-                        </span>Sobre o Projeto</a>
                 </li>
             </ul>
         </nav>
@@ -114,7 +108,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.PERFIL= json.perfil;
                     window.location = "./main.html";
                 });

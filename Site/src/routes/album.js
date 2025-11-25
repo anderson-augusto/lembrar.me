@@ -3,6 +3,9 @@ var router = express.Router();
 
 var albumController = require("../controllers/albumController");
 
+router.get("/listar/:idUsuario", function (req, res) {
+    albumController.listarAlbuns(req, res);
+});
 
 router.get("/curtidas", albumController.curtidasPorAlbum);
 router.get("/viewsLikesSemana", albumController.viewsLikesSemanal);

@@ -2,10 +2,18 @@ var database = require("../database/config");
 
 function curtir(idFoto, idUsuario) {
     var instrucaoSql = `
-        INSERT INTO curtida (idFoto, idUsuario)
+        INSERT IGNORE INTO curtida (idFoto, idUsuario)
         VALUES (${idFoto}, ${idUsuario});
     `;
     return database.executar(instrucaoSql);
+}
+
+function verificar(idFoto, idUsuario){
+    var sql = `
+        SELECT * FROM curtida
+        WHERE idFoto = ${idFoto} AND idUsuario = ${idUsuario};
+    `;
+    return database.executar(sql);
 }
 
 function descurtir(idFoto, idUsuario) {
@@ -27,6 +35,7 @@ function contar(idFoto) {
 }
 
 module.exports = {
+    verificar,
     curtir,
     descurtir,
     contar

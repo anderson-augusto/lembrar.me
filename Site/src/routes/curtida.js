@@ -15,4 +15,8 @@ router.get("/contar/:idFoto", function (req, res) {
     curtidaController.contar(req, res);
 });
 
+router.get("/verificar/:idFoto/:idUsuario", (req, res) => {
+    curtidaController.verificar(req, res);
+});
+
 module.exports = router;

@@ -1,7 +1,12 @@
 var albumModel = require("../models/albumModel");
 
 
-var albumModel = require("../models/albumModel");
+function listarAlbuns(req, res) {
+    albumModel.listarAlbuns()
+        .then(r => res.json(r))
+        .catch(e => res.status(500).json(e.sqlMessage));
+}
+
 
 function curtidasPorAlbum(req, res){
     albumModel.curtidasPorAlbum()
@@ -49,7 +54,6 @@ function fotosMes(req, res) {
 
 module.exports = {
     listarAlbuns,
-    kpiRankingEngajamento,
     curtidasPorAlbum,
     viewsLikesSemanal,
     albumMaisEngajado,
@@ -58,3 +62,4 @@ module.exports = {
     diaMaisLembrado,
     fotosMes
 }
+

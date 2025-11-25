@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <header> <!-- Header é um elemento semantico, tem seus proprios comportamentos-->
+    <header> 
         <div class="header-logo">
-            <a href="index.html"><img src="./src/img/logo2.png" class="titulo"></a>
+            <a href="index.html"><img src="./src/img/logo2.png" height="100%" width="100%" class="titulo"></a>
         </div>
-        <nav> <!-- Nav também-->
+        <nav> 
             <ul>
                 <li class="listagem">
                 </li>
@@ -50,40 +50,7 @@
 
     <!-- ÁLBUNS -->
     <section class="albuns" id="albuns">
-        <div class="album-item">
-            <a href="album.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/4211/4211547.png" alt="Álbum 1">
-            </a>
-            <p>Álbum 1</p>
-        </div>
-
-        <div class="album-item">
-            <a href="album.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/4211/4211547.png" alt="Álbum 2">
-            </a>
-            <p>Álbum 2</p>
-        </div>
-
-        <div class="album-item">
-            <a href="album.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/4211/4211547.png" alt="Álbum 3">
-            </a>
-            <p>Álbum 3</p>
-        </div>
-
-        <div class="album-item">
-            <a href="album.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/4211/4211547.png" alt="Álbum 4">
-            </a>
-            <p>Álbum 4</p>
-        </div>
-
-        <div class="album-item">
-            <a href="album.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/4211/4211547.png" alt="Álbum 5">
-            </a>
-            <p>Álbum 5</p>
-        </div>
+        <section class="albuns" id="albuns"></section>
     </section>
 
     <!-- PESSOAS IMPORTANTES -->
@@ -111,3 +78,49 @@
     
 </body>
 </html>
+
+<script>
+async function carregarAlbuns() {
+    const idUsuario = sessionStorage.ID_USUARIO || 0; 
+
+    const response = await fetch(`/album/listar/${idUsuario}`);
+    if (!response.ok) {
+        console.error("Erro ao carregar álbuns", response.statusText);
+        return;
+    }
+    const lista = await response.json();
+
+    const secao = document.querySelector(".albuns");
+    secao.innerHTML = "";
+
+    if(!Array.isArray(lista) || lista.length === 0){
+        secao.innerHTML = "<p>Nenhum álbum disponível</p>";
+        return;
+    }
+
+    lista.forEach(album => {
+        const div = document.createElement("div");
+        div.className = "album-item";
+
+        const img = document.createElement("img");
+        // album.capa (sql acima) ou fallback
+        img.src = album.capa || "https://cdn-icons-png.flaticon.com/512/4211/4211547.png";
+        img.alt = album.nome || "Álbum";
+
+        img.onclick = () => {
+            sessionStorage.ID_ALBUM = album.idAlbum; 
+            window.location = "album.html";
+        }
+
+        const p = document.createElement("p");
+        p.textContent = album.nome;
+
+        div.appendChild(img)
+        div.appendChild(p)
+
+        secao.appendChild(div)
+    })
+}
+
+window.onload = carregarAlbuns;
+</script>
