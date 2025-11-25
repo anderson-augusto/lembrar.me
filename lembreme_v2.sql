@@ -28,6 +28,9 @@ CREATE TABLE foto (
     CONSTRAINT fk_foto_album FOREIGN KEY (fkAlbum)
         REFERENCES album(idAlbum)
 );
+ALTER TABLE foto
+ADD url VARCHAR(255);
+
 
 -- Curtida
 CREATE TABLE curtida (
@@ -163,7 +166,7 @@ SELECT
     COUNT(*) AS fotos
 FROM foto
 GROUP BY 
-    DATE_FORMAT(dtCriacao,'%Y-%m')
+    ano_mes, mes
 ORDER BY ano_mes;
 
 SELECT 
@@ -178,7 +181,7 @@ ORDER BY
     YEAR(dtCriacao),
     MONTH(dtCriacao);
     
-INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
+/*INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
 SELECT  idFoto, 2, DATE_SUB(NOW(), INTERVAL 1 WEEK)
 FROM foto LIMIT 5;
 
@@ -219,4 +222,12 @@ FROM foto LIMIT 3;
 -- 5 semanas atrás
 INSERT INTO visualizacao (idFoto, idUsuario, dtVisualizacao)
 SELECT idFoto, NULL, DATE_SUB(NOW(), INTERVAL 5 WEEK)
-FROM foto LIMIT 2;
+FROM foto LIMIT 2;*/
+
+
+DESC foto;
+SELECT * from curtida;
+SELECT * FROM album;
+DESC curtida;
+
+-- UPDATE foto SET url = 'fotos/banner_eu_pai.JPG' WHERE idFoto IN (19,20,21);

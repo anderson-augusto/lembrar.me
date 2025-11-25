@@ -15,9 +15,9 @@
 <body>
     <header> 
         <div class="header-logo">
-            <a href="index.html"><img src="./src/img/logo2.png" height="100%" width="100%" class="titulo"></a>
+            <a href="index.html"><img src="./src/img/logo.png" height="100%" width="100%" class="titulo"></a>
         </div>
-        <nav> 
+        <nav>   
             <ul>
                 <li class="listagem">
                 </li>
@@ -39,8 +39,8 @@
             </ul>
         </nav>
         <div class="perfil">
-            <a href="perfil.html"> Nome </a>
-            <a href="perfil.html"> <img src=""></a> 
+            <p id="nomeUsuario"></p>
+            <button id="btnLogout" class="logout-btn">Sair</button>
         </div>
     </header>
    <main>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- ÁLBUNS -->
-    <section class="albuns" id="albuns">
+    <section class="albuns-container" id="albuns">
         <section class="albuns" id="albuns"></section>
     </section>
 
@@ -58,18 +58,127 @@
         <h2>Pessoas Importantes</h2>
 
         <div class="pessoas-grid">
+
             <div class="pessoa">
                 <img src="" alt="">
-                <p>João</p>
+                <p>Mãe</p>
             </div>
-            <div class="pessoa">
-                <img src="" alt="">
-                <p>Maria</p>
-            </div>
+
             <div class="pessoa">
                 <img src="" alt="">
                 <p>Ana</p>
             </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Bia</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Pedro</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Zeus</p>
+            </div>
+
+             <div class="pessoa">
+                <img src="" alt="">
+                <p>Bea</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Luiz</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Apolo</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Vitor</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Cauã</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Danilo</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Fabi</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Tia</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Sabrina</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Ananda</p>
+            </div>
+
+             <div class="pessoa">
+                <img src="src/img/fidel.png" alt="">
+                <p>Fidel</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Amigos Ensino Médio</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Amigos FATEC</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Claudia</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Jõao R.</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Eslen</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Clovis de Barros</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Pai</p>
+            </div>
+            
+            <div class="pessoa">
+                <img src="" alt="">
+                <p>Eu</p>
+            </div>
+
         </div>
     </section>
 </main>
@@ -122,5 +231,15 @@ async function carregarAlbuns() {
     })
 }
 
+
 window.onload = carregarAlbuns;
+
+document.getElementById("btnLogout").addEventListener("click", () => {
+    sessionStorage.clear();
+    window.location.href = "index.html";
+});
+
+// Exibir nome do usuário automaticamente
+document.getElementById("nomeUsuario").textContent = sessionStorage.NOME_USUARIO ?? "Usuário!";
+
 </script>

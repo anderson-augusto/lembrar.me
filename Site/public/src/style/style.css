@@ -404,7 +404,6 @@ main h3 {
 }
 
 /* ---- PESSOAS IMPORTANTES ---- */
-
 .pessoas-importantes {
     margin-top: 50px;
     padding: 0 20px;
@@ -415,37 +414,57 @@ main h3 {
 }
 
 .pessoas-grid {
-    justify-content: center;
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .pessoa {
     text-align: center;
+    padding: 10px;
 }
 
 .pessoa img {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.perfil img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+
+/* ---- Perfil LogOut ---- */
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
 }
+
+.logout-btn {
+    padding: 6px 14px;
+    background-color: #e63946;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c9232f;
+}
+
+/* ===== DASHBOARD ===== */
 
 .saudacao {
     color: #76C043;
     padding-top: 15px;
     padding-left: 100px;
 }
-
-/* ===== DASHBOARD ===== */
-
 
 /* KPIS */
 .kpis{
