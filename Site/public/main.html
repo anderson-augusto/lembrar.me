@@ -212,7 +212,7 @@ async function carregarAlbuns() {
         div.className = "album-item";
 
         const img = document.createElement("img");
-        // album.capa (sql acima) ou fallback
+        
         img.src = album.capa || "https://cdn-icons-png.flaticon.com/512/4211/4211547.png";
         img.alt = album.nome || "Álbum";
 
@@ -239,7 +239,6 @@ document.getElementById("btnLogout").addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-// Exibir nome do usuário automaticamente
 document.getElementById("nomeUsuario").textContent = sessionStorage.NOME_USUARIO ?? "Usuário!";
 
 </script>

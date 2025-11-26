@@ -12,7 +12,6 @@
 body {
     background-color: #0f141a;
     color: #E4E4E4;
-    line-height: 1.6;
 }
 
 /*        HEADER         */
@@ -24,8 +23,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
-    left: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
@@ -73,7 +70,7 @@ nav a:hover {
     background-color: #5A9A35;
 }
 
-/*        Seção Principal           */
+/* Seção Principal */
 
 .main-img {
     width: 100%;
@@ -369,7 +366,7 @@ main h3 {
   color: #E38B27;
 }
 
-/* ---- TÍTULO  MAIN ---- */
+/* TÍTULO  MAIN  */
 .titulo-main {
     padding: 10px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -381,7 +378,7 @@ main h3 {
     
 }
 
-/* ---- ÁLBUNS ---- */
+/*  ÁLBUNS  */
 
 .albuns {
     margin-top: 30px;
@@ -403,7 +400,7 @@ main h3 {
     margin: 0 auto;
 }
 
-/* ---- PESSOAS IMPORTANTES ---- */
+/*  PESSOAS IMPORTANTES  */
 .pessoas-importantes {
     margin-top: 50px;
     padding: 0 20px;
@@ -433,7 +430,7 @@ main h3 {
 }
 
 
-/* ---- Perfil LogOut ---- */
+/*  Perfil LogOut  */
 
 .perfil {
     display: flex;
@@ -458,7 +455,7 @@ main h3 {
     background-color: #c9232f;
 }
 
-/* ===== DASHBOARD ===== */
+/*  DASHBOARD  */
 
 .saudacao {
     color: #76C043;

@@ -18,8 +18,6 @@ function autenticar(email, senha) {
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 
-
-
 function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n function cadastrar():", nome, email, senha);
  
