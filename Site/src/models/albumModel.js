@@ -35,36 +35,6 @@ function curtidasPorAlbum(){
     return database.executar(sql);
 }
 
-// últimas 5 semanas views e likes
-function viewsLikesSemanal(){
-    var sql = `
-        SELECT 
-            sem.semana,
-            sem.views,
-            COALESCE(likes.qtdLikes, 0) AS likes
-        FROM (
-            SELECT 
-                WEEK(dtVisualizacao, 1) AS semana,
-                COUNT(*) AS views
-            FROM visualizacao
-            WHERE dtVisualizacao >= NOW() - INTERVAL 5 WEEK
-            GROUP BY WEEK(dtVisualizacao, 1)
-        ) AS sem
-        LEFT JOIN (
-            SELECT 
-                WEEK(dtCurtida, 1) AS semana,
-                COUNT(*) AS qtdLikes
-            FROM curtida
-            WHERE dtCurtida >= NOW() - INTERVAL 5 WEEK
-            GROUP BY WEEK(dtCurtida, 1)
-        ) AS likes
-        ON likes.semana = sem.semana
-        ORDER BY sem.semana;
-
-    `;
-    return database.executar(sql);
-}
-
 function albumMaisEngajado() {
     const sql = `
         SELECT 
@@ -169,7 +139,6 @@ function fotosMes() {
 module.exports = {
     listarAlbuns,
     curtidasPorAlbum,
-    viewsLikesSemanal,
     albumMaisEngajado,
     fotoImpactante,
     albumQueMaisCresceu,

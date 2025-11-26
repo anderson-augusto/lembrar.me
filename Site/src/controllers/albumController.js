@@ -14,11 +14,6 @@ function curtidasPorAlbum(req, res){
     .catch(e => res.status(500).json(e.sqlMessage));
 }
 
-function viewsLikesSemanal(req, res){
-    albumModel.viewsLikesSemanal()
-    .then(r => res.json(r))
-    .catch(e => res.status(500).json(e.sqlMessage));
-}
 
 function albumMaisEngajado(req, res) {
     albumModel.albumMaisEngajado()
@@ -55,7 +50,6 @@ function fotosMes(req, res) {
 module.exports = {
     listarAlbuns,
     curtidasPorAlbum,
-    viewsLikesSemanal,
     albumMaisEngajado,
     fotoImpactante,
     albumQueMaisCresceu,

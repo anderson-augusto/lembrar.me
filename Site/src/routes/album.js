@@ -8,8 +8,6 @@ router.get("/listar/:idUsuario", function (req, res) {
 });
 
 router.get("/curtidas", albumController.curtidasPorAlbum);
-router.get("/viewsLikesSemana", albumController.viewsLikesSemanal);
-
 
 router.get("/kpi/album-mais-engajado", albumController.albumMaisEngajado);
 router.get("/kpi/foto-impactante", albumController.fotoImpactante);
