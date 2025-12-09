@@ -2,21 +2,21 @@ var database = require("../database/config");
 
 function listarAlbuns() {
     var instrucaoSql = `
-        SELECT 
-            a.idAlbum,
-            a.nome,
-            a.descricao,
-            a.dtCriacao,
-            -- pega a URL da foto mais recente como capa (se existir)
-            (
-                SELECT f.url
-                FROM foto f
-                WHERE f.fkAlbum = a.idAlbum
-                ORDER BY f.dtCriacao DESC
-                LIMIT 1
-            ) AS capa
-        FROM album a
-        ORDER BY a.dtCriacao DESC;
+            SELECT 
+                a.idAlbum,
+                a.nome,
+                a.descricao,
+                a.dtCriacao,
+                -- pega a URL da foto mais recente como capa (se existir)
+                (
+                    SELECT f.url
+                    FROM foto f
+                    WHERE f.fkAlbum = a.idAlbum
+                    ORDER BY f.dtCriacao DESC
+                    LIMIT 1
+                ) AS capa
+            FROM album a
+            ORDER BY a.dtCriacao DESC;
     `;
     return database.executar(instrucaoSql);
 }
@@ -40,13 +40,9 @@ function albumMaisEngajado() {
         SELECT 
             a.idAlbum,
             a.nome,
-            COUNT(DISTINCT v.idVisualizacao) +
             COUNT(DISTINCT c.idUsuario) AS engajamento
         FROM album a
         LEFT JOIN foto f ON f.fkAlbum = a.idAlbum
-        LEFT JOIN visualizacao v 
-            ON v.idFoto = f.idFoto 
-            AND v.dtVisualizacao >= NOW() - INTERVAL 30 DAY
         LEFT JOIN curtida c 
             ON c.idFoto = f.idFoto
             AND c.dtCurtida >= NOW() - INTERVAL 30 DAY
